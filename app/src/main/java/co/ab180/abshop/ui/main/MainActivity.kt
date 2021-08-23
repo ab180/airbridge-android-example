@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import co.ab180.abshop.R
 import co.ab180.abshop.data.Constants
 import co.ab180.abshop.databinding.MainActivityBinding
+import co.ab180.airbridge.Airbridge
+import co.ab180.airbridge.event.StandardEventCategory
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,5 +23,8 @@ class MainActivity : AppCompatActivity() {
         adapter.submitList(Constants.products)
         binding.listView.layoutManager = GridLayoutManager(this, 2)
         binding.listView.adapter = adapter
+
+        // Track home view event
+        Airbridge.trackEvent(StandardEventCategory.HOME_VIEW)
     }
 }

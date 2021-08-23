@@ -8,6 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import co.ab180.abshop.GlideApp
 import co.ab180.abshop.data.Constants
 import co.ab180.abshop.databinding.DetailsActivityBinding
+import co.ab180.airbridge.Airbridge
+import co.ab180.airbridge.event.StandardEventCategory
+import co.ab180.airbridge.event.model.Product
+import co.ab180.airbridge.event.model.SemanticAttributes
 import com.bumptech.glide.Glide
 
 class DetailsActivity : AppCompatActivity() {
@@ -30,8 +34,39 @@ class DetailsActivity : AppCompatActivity() {
         binding.priceLabel.text = String.format("$${product?.price}")
         binding.buyButton.setOnClickListener {
             Toast.makeText(this, "Order Completed!", Toast.LENGTH_SHORT).show()
+            // Track order completed event
+            val semanticAttributes = SemanticAttributes(
+                products = listOf(
+                    Product(
+                        id = product?.id.toString(),
+                        name = product?.title,
+                        price = product?.price?.toFloat()
+                    )
+                )
+            )
+            Airbridge.trackEvent(
+                category = StandardEventCategory.ORDER_COMPLETED,
+                label = product?.title,
+                semanticAttributes = semanticAttributes.toMap()
+            )
             onBackPressed()
         }
+
+        // Track product details view event
+        val semanticAttributes = SemanticAttributes(
+            products = listOf(
+                Product(
+                    id = product?.id.toString(),
+                    name = product?.title,
+                    price = product?.price?.toFloat()
+                )
+            )
+        )
+        Airbridge.trackEvent(
+            category = StandardEventCategory.PRODUCT_DETAILS_VIEW,
+            label = product?.title,
+            semanticAttributes = semanticAttributes.toMap()
+        )
     }
 
     companion object {
