@@ -15,5 +15,7 @@ allprojects {
         google()
         mavenCentral()
         maven("https://jitpack.io")
+        // Airbridge Maven
+        maven("https://sdk-download.airbridge.io/maven")
     }
 }

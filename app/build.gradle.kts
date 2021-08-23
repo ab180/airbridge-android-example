@@ -40,4 +40,7 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.0")
 
     implementation("com.google.android.material:material:1.4.0")
+
+    // Airbridge
+    implementation("io.airbridge:sdk-android:2.12.1")
 }
