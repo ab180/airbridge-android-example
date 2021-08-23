@@ -2,6 +2,7 @@ package co.ab180.abshop.ui.details
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -23,7 +24,23 @@ class DetailsActivity : AppCompatActivity() {
         binding = DetailsActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val id = intent.getIntExtra(EXTRA_ID, 0)
+        if (!intent.dataString.isNullOrEmpty()) {
+            val uri = Uri.parse(intent.dataString)
+            val queryId = uri.getQueryParameter(EXTRA_ID)
+            if (queryId.isNullOrEmpty()) {
+                Toast.makeText(this, "Cannot find id query parameter", Toast.LENGTH_SHORT).show()
+                finish()
+                return
+            }
+
+            initProductUI(Integer.parseInt(queryId))
+        } else {
+            val id = intent.getIntExtra(EXTRA_ID, 0)
+            initProductUI(id)
+        }
+    }
+
+    fun initProductUI(id: Int) {
         val product = Constants.getProductById(id)
         GlideApp.with(binding.imageView)
             .load(product?.image)
