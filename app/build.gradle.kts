@@ -42,5 +42,5 @@ dependencies {
     implementation("com.google.android.material:material:1.4.0")
 
     // Airbridge
-    implementation("io.airbridge:sdk-android:2.12.1")
+    implementation("io.airbridge:sdk-android:2.12.2")
 }
