@@ -17,6 +17,10 @@ class MessageDialog : DialogFragment() {
 
     private lateinit var message: String
 
+    init {
+        retainInstance = true
+    }
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
         val builder = AlertDialog.Builder(context)
@@ -39,6 +43,15 @@ class MessageDialog : DialogFragment() {
             .setView(contentView)
             .setNegativeButton(R.string.cancel) { _, _ -> }
             .create()
+    }
+
+    override fun onDestroyView() {
+        val dialog = dialog
+        // handles https://code.google.com/p/android/issues/detail?id=17423
+        if (dialog != null && retainInstance) {
+            dialog.setDismissMessage(null)
+        }
+        super.onDestroyView()
     }
 
     companion object {
