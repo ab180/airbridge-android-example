@@ -24,10 +24,9 @@
 - If example app is installed,
   - Then user moves to example app with `exabr://deeplink` URL.
 - If example app is not installed,
-  - If link is Store fallback tracking link or [airbridge-web-example](https://github.com/ab180/airbridge-web-example) link,
-    - Then user moves to Google Play Store.
-  - If link is Web fallback tracking link,
-    - Then user moves to Web page.
+  - Then
+    - If link is Store fallback tracking link or [airbridge-web-example](https://github.com/ab180/airbridge-web-example) link, user moves to Google play store.
+    - If link is Web fallback tracking link, user moves to Web page.
   - And then if user install example app and open it.
   - And then user moves to example app with `exabr://deeplink` URL. (Airbridge's deferred deeplink feature)
     > Airbridge's deferred deeplink feature
