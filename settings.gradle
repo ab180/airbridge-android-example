@@ -1,2 +1,2 @@
-rootProject.name = "abshop"
-include ":app"
+rootProject.name = "exabr"
+include ':app'
