@@ -1,2 +1,3 @@
 rootProject.name = "exabr"
-include ':app'
+include ':example:kotlinExample'
+include ':example:javaExample'
