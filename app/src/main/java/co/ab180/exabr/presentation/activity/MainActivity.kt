@@ -51,13 +51,12 @@ class MainActivity : AppCompatActivity() {
             val semanticAttributes = SemanticAttributes()
             semanticAttributes.products = listOf(lipstick, foundation)
             semanticAttributes.currency = "USD"
-            semanticAttributes.totalValue = 37.98
             semanticAttributes.inAppPurchased = true
             Airbridge.trackEvent(
                 category = StandardEventCategory.ORDER_COMPLETED,
                 action = null,
                 label = null,
-                value = null,
+                value = 37.98f,
                 customAttributes = null,
                 semanticAttributes = semanticAttributes.toMap()
             )
