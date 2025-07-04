@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">exabr</string>
+    <string name="app_title">Airbridge Android Example</string>
+
+    <string name="button_track_event">Track Event</string>
+
+    <string name="message_dialog_title">Message</string>
+    <string name="cancel">Cancel</string>
+</resources>
