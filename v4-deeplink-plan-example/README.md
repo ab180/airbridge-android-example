@@ -18,7 +18,7 @@ To set up a deep link, refer to the [Set up deep linking](https://help.airbridge
 
 ### Deeplink test
 You can test deep links using the following two methods:
-1. Click on a custom scheme deep link starting with exabr://
+1. Click on a custom scheme deep link starting with exabr:// with airbridge_referrer query parameter (e.g., exabr://example?airbridge_referrer=value)
 2. Click on the Airbridge tracking link: https://abr.ge/4mw2j8
 
 Confirm that the app launches and displays the deep link information.
